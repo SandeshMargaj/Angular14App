@@ -7,10 +7,7 @@ describe('AppComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule
-      ],
-      declarations: [
-        AppComponent
-      ],
+      ]
     }).compileComponents();
   });
 
@@ -26,10 +23,5 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('Angular14Demo');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('Angular14Demo app is running!');
-  });
+
 });

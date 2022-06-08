@@ -23,5 +23,10 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('Angular14Demo');
   });
 
-
+  it('should render title', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('a')?.textContent).toContain('Users');
+  });
 });

@@ -1,0 +1,186 @@
+<div class="container">
+  <div class="row">
+    <h1>Register</h1>
+  </div>
+  <div class="row">
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="firstName" class="form-label">First Name</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter First Name"
+          formControlName="firstName"
+        />
+        <div
+          *ngIf="
+            userForm.get('firstName')?.touched &&
+            userForm.get('firstName')?.invalid
+          "
+          class="invalid-input"
+        >
+          <div *ngIf="userForm.get('firstName')?.errors?.['required']">
+            {{ "First Name is Required" }}
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="lastName" class="form-label">Last Name</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter Last Name"
+          formControlName="lastName"
+        />
+        <div
+          *ngIf="
+            userForm.get('lastName')?.touched &&
+            userForm.get('lastName')?.invalid
+          "
+          class="invalid-input"
+        >
+          <div *ngIf="userForm.get('lastName')?.errors?.['required']">
+            {{ "Last Name is Required" }}
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="userName" class="form-label">UserName</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter UserName"
+          formControlName="userName"
+        />
+        <div
+          *ngIf="
+            userForm.get('userName')?.touched &&
+            userForm.get('userName')?.invalid
+          "
+          class="invalid-input"
+        >
+          <div *ngIf="userForm.get('userName')?.errors?.['required']">
+            {{ "UserName is Required" }}
+          </div>
+          <div *ngIf="userForm.get('userName')?.errors?.['minlength']">
+            {{ "UserName should be more than 4 characters" }}
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email" class="form-label">Email</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter Email"
+          formControlName="email"
+        />
+        <div
+          *ngIf="
+            userForm.get('email')?.touched && userForm.get('email')?.invalid
+          "
+          class="invalid-input"
+        >
+          <div *ngIf="userForm.get('email')?.errors?.['required']">
+            {{ "Email is Required" }}
+          </div>
+          <div *ngIf="userForm.get('email')?.errors?.['email']">
+            {{ "Email is Invalid" }}
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="phone" class="form-label">Phone</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter phone"
+          formControlName="phone"
+        />
+      </div>
+      <div class="form-group" formGroupName="address">
+        <label class="form-label">Address</label>
+        <div class="form-group">
+          <label for="AddressLine1" class="form-label">AddressLine1</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter AddressLine1"
+            formControlName="AddressLine1"
+          />
+          <div
+            *ngIf="
+            userForm.get('address')?.get('AddressLine1')?.touched &&
+            userForm.get('address')?.get('AddressLine1')?.invalid
+            "
+            class="invalid-input"
+          >
+            <div *ngIf="userForm.get('address')?.get('AddressLine1')?.errors?.['required']">
+              {{ "AddressLine1 is Required" }}
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="AddressLine2" class="form-label">AddressLine2</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter AddressLine2"
+            formControlName="AddressLine2"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="City" class="form-label">City</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter City"
+            formControlName="City"
+          />
+          <div
+            *ngIf="
+            userForm.get('address')?.get('City')?.touched && userForm.get('address')?.get('City')?.invalid
+            "
+            class="invalid-input"
+          >
+            <div *ngIf="userForm.get('address')?.get('City')?.errors?.['required']">
+              {{ "City is Required" }}
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="Country" class="form-label">Country</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter Country"
+            formControlName="Country"
+          />
+          <div
+            *ngIf="
+            userForm.get('address')?.get('Country')?.touched &&
+            userForm.get('address')?.get('Country')?.invalid
+            "
+            class="invalid-input"
+          >
+            <div *ngIf="userForm.get('address')?.get('Country')?.errors?.['required']">
+              {{ "Country is Required" }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-4 pt-2">
+        <button
+          type="submit"
+          class="btn btn-info btn-lg text-white"
+          style="padding-left: 2.5rem; padding-right: 2.5rem; float: right"
+        >
+          Add User
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

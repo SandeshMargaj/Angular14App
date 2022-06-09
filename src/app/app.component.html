@@ -1,2 +1,20 @@
-<a routerLink="/users">Users</a>
-<router-outlet></router-outlet>
+<nav class="navbar navbar-expand-md  navbar-light fixed-top px-2"  style="background-color: #f0d121;">
+  <a class="navbar-brand" routerLink="">Angular</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExample04">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a id="userlink" class="nav-link" routerLink="users">Users</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container pt-5 mt-4">
+
+  <router-outlet></router-outlet>
+</div>
+
